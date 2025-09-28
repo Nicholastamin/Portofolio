@@ -124,6 +124,11 @@ WHERE project_name = ? AND user_id = ?"""
 WHERE user_id = ? AND project_id = ? """
         self.__executemany(sql, [(user_id, project_id)])
     
+    def delete_status(self, status_id):
+        sql = """DELETE FROM projects 
+WHERE user_id = ? """
+        self.__executemany(sql, [(user_id, project_id)])
+
     def delete_skill(self, project_id, skill_id):
         sql = """DELETE FROM skills 
 WHERE skill_id = ? AND project_id = ? """
@@ -133,4 +138,5 @@ WHERE skill_id = ? AND project_id = ? """
 if __name__ == '__main__':
     manager = DB_Manager(DATABASE)
     manager.default_insert()
+    manager.insert_project([(1, "tempat pembuangan", "https://11112", 3)])
     # Uji metodemu di sini
