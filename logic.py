@@ -134,9 +134,10 @@ WHERE user_id = ? """
 WHERE skill_id = ? AND project_id = ? """
         self.__executemany(sql, [(skill_id, project_id)])
 
-
 if __name__ == '__main__':
     manager = DB_Manager(DATABASE)
     manager.default_insert()
-    manager.insert_project([(1, "tempat pembuangan", "https://11112", 3)])
-    # Uji metodemu di sini
+    manager.insert_project([
+        (1, "tempat pembuangan", "https://11112", 3),
+        (2, "Portofolio", "https://github.com/Nicholastamin/Portofolio", 2)
+    ])
